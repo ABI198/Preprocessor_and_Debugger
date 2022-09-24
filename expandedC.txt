@@ -1,0 +1,26 @@
+#include "myDebugHdr.h"
+
+int main()
+{
+	int a, b,c;
+	setTraceVariables("a");
+	setTraceVariables("b");
+	b=0;
+	save("b",b);
+	c=12;
+	a=1;
+	save("a",a);
+	while(b<100)
+	{
+		c=12*b;
+		b=b+c;
+		save("b",b);
+		a=a+b;
+		save("a",a);
+		b=b+1;
+		save("b",b);
+		breakpoint("a",10); // display the last n values of variable "a"
+		breakpoint("b",1); // display the last value of variable "b"	
+	}
+	return 0;
+}
